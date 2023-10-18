@@ -12,6 +12,9 @@ import { AsesoriaComponent } from './components/tabs/asesoria/asesoria.component
 import { FinanciacionComponent } from './components/tabs/financiacion/financiacion.component';
 import { LoginComponent } from './components/tabs/login/login.component';
 import { RegisterComponent } from './components/tabs/register/register.component';
+import { IndexComponent } from './components/tabs/index/index.component';
+import { NosotrosComponent } from './components/tabs/nosotros/nosotros.component';
+import { ContactoComponent } from './components/tabs/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { RegisterComponent } from './components/tabs/register/register.component
     AsesoriaComponent,
     FinanciacionComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    IndexComponent,
+    NosotrosComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
