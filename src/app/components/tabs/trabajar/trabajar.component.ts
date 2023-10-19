@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -10,8 +11,21 @@ export class TrabajarComponent {
   profession: string = "";
   selected: number = 0;
 
-  constructor()
-  {}
+  form: FormGroup
+
+  constructor(
+    private formBuilder: FormBuilder
+  )
+  {
+    this.form = new FormGroup({
+      name: new FormControl('', Validators.required),
+      lastname: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      depto: new FormControl('', [Validators.required]),
+      ciudad: new FormControl('', [Validators.required]),
+      direccion: new FormControl('', [Validators.required]),
+    })
+  }
 
   onSelected(value:string) {
     if (value == "Sin estudios" || value == "Bachiller") {
@@ -19,9 +33,9 @@ export class TrabajarComponent {
     } else if (value == "Técnico") {
       this.selected = 2;
     } else if (value == "Tecnólogo") {
-      this.selected = 3;
+      this.selected = 2;
     } else if (value == "Profesional") {
-      this.selected = 4;
+      this.selected = 2;
     } else {
       this.selected = 0;
     }
@@ -42,7 +56,8 @@ export class TrabajarComponent {
           'Enviada!',
           'Tu hoja de vida ha sido enviada, pronto nos contactaremos.',
           'success'
-        )
+        );
+        this.form.reset();
       }
     });
   }
@@ -62,7 +77,50 @@ export class TrabajarComponent {
           'Enviada!',
           'Tu solicitud ha sido enviada, pronto nos contactaremos.',
           'success'
-        )
+        );
+        this.form.reset();
+      }
+    });
+  }
+
+  desarrollarProducto() {
+    Swal.fire({
+      title: 'Quieres desarrollar un producto?',
+      text: "Recuerda que los productos ya deben tener ideas bases establecidas!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, enviar solicitud!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Enviada!',
+          'Tu solicitud ha sido enviada, pronto nos contactaremos.',
+          'success'
+        );
+        this.form.reset();
+      }
+    });
+  }
+
+  postularCargo() {
+    Swal.fire({
+      title: 'Quieres postularte a un cargo?',
+      text: "Recuerda que las postulaciones se realizan acorde a los cupos solicitados",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, enviar solicitud!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Enviada!',
+          'Tu solicitud ha sido enviada, pronto nos contactaremos.',
+          'success'
+        );
+        this.form.reset();
       }
     });
   }

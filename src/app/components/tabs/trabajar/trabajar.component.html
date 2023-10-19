@@ -1,9 +1,12 @@
 <section id="services" class="services" style="padding-top: 150px;">
     <div class="container my-3">
-        <form class="row g-3">
+        <form [formGroup]="form" class="row g-3">
+            <div class="col-md-12">
+                <span>Campos con * son requeridos</span>
+            </div>
 
             <div class="col-md-12">
-                <label for="validationDefault04" class="form-label">Formación</label>
+                <label for="validationDefault04" class="form-label">Formación *</label>
                 <select class="form-select" #profession (change)="onSelected(profession.value)" id="validationDefault04"
                     required="">
                     <option selected="" disabled="" value="">Elija una opción</option>
@@ -16,55 +19,53 @@
             </div>
 
             <div class="col-md-4">
-                <label for="validationDefault01" class="form-label">Nombres</label>
-                <input type="text" class="form-control" id="validationDefault01" required="">
+                <label for="validationDefault01" class="form-label">Nombres *</label>
+                <input type="text" formControlName="name" class="form-control" id="validationDefault01" required="">
             </div>
 
             <div class="col-md-4">
-                <label for="validationDefault02" class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="validationDefault02" required="">
+                <label for="validationDefault02" class="form-label">Apellidos *</label>
+                <input type="text" class="form-control" formControlName="lastname" id="validationDefault02" required="">
             </div>
 
             <div class="col-md-4">
-                <label for="validationDefaultUsername" class="form-label">Correo</label>
+                <label for="validationDefaultUsername" class="form-label">Correo *</label>
                 <div class="input-group">
-                    <input type="email" class="form-control" id="validationDefaultUsername"
+                    <input type="email" class="form-control" formControlName="email" id="validationDefaultUsername"
                         aria-describedby="inputGroupPrepend2" required="">
                 </div>
             </div>
 
             <div class="col-md-4">
-                <label for="validationDefault03" class="form-label">Departamento</label>
-                <input type="text" class="form-control" id="validationDefault03" required="">
+                <label for="validationDefault03" class="form-label">Departamento *</label>
+                <input type="text" formControlName="depto" class="form-control" id="validationDefault03" required="">
             </div>
 
             <div class="col-md-4">
-                <label for="validationDefault05" class="form-label">Ciudad</label>
-                <input type="text" class="form-control" id="validationDefault05" required="">
+                <label for="validationDefault05" class="form-label">Ciudad *</label>
+                <input type="text" formControlName="ciudad" class="form-control" id="validationDefault05" required="">
             </div>
 
             <div class="col-md-4">
-                <label for="validationDefault05" class="form-label">Dirección</label>
-                <input type="text" class="form-control" id="validationDefault05" required="">
+                <label for="validationDefault05" class="form-label">Dirección *</label>
+                <input type="text" class="form-control" formControlName="direccion" id="validationDefault05" required="">
             </div>
 
             <div class="botones mt-5" *ngIf="selected==1">
                 
-                    <button class="btn mx-4 btn-primary" (click)="buscarEmpleo()" type="submit">Buscar empleo</button>
+                    <button class="btn mx-4 btn-primary" [disabled]="!form.valid" (click)="buscarEmpleo()" type="submit">Buscar empleo</button>
                 
-                
-                
-                    <button class="btn mx-4 btn-primary" (click)="capacitacionVirtual()" type="submit">Capacitación virtual</button>
+                    <button class="btn mx-4 btn-primary" [disabled]="!form.valid" (click)="capacitacionVirtual()" type="submit">Capacitación virtual</button>
                 
             </div>
-            <div *ngIf="selected==2">
-                prueba 2
-            </div>
-            <div *ngIf="selected==3">
-                prueba 3
-            </div>
-            <div *ngIf="selected==4">
-                prueba 4
+            <div class="botones mt-5" *ngIf="selected==2">
+                <button class="btn mx-4 btn-primary" [disabled]="!form.valid" (click)="desarrollarProducto()" type="submit">Buscar
+                    empleo</button>
+                
+                <button class="btn mx-4 btn-primary" [disabled]="!form.valid" (click)="postularCargo()" type="submit">Capacitación
+                    virtual</button>
+
+                    <button class="btn mx-4 btn-primary" [disabled]="!form.valid" routerLink="/asesoria" type="submit">Solicitar asesoria</button>
             </div>
         </form>
 
