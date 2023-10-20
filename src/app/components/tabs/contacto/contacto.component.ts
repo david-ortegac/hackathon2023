@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-contacto',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent {
+
+  send() {
+    Swal.fire('Mensaje enviado!')
+  }
 
 }

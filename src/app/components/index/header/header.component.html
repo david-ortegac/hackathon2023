@@ -11,20 +11,20 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a routerLink="/" class="active">Inicio</a></li>
-                <li><a routerLink="/nosotros">Nosotros</a></li>
-                <li class="dropdown"><a href="#"><span>Servicios</span> <i
+                <li><a routerLink="/" class="active" (click)="showMenu()">Inicio</a></li>
+                <li><a routerLink="/nosotros" (click)="showMenu()">Nosotros</a></li>
+                <li class="dropdown"><a><span>Servicios</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a routerLink="/trabajar">Quiero Trabajar</a></li>
-                        <li><a routerLink="/asesoria">Asesorias</a></li>
-                        <li><a routerLink="/inversionista">Soy inversionista</a></li>
-                        <li><a routerLink="/financiacion">Fuentes de financiación</a></li>
+                        <li><a routerLink="/asesoria" (click)="showMenu()">Asesoria de proyectos</a></li>
+                        <li><a routerLink="/inversionista" (click)="showMenu()">Inversion</a></li>
+                        <li><a routerLink="/financiacion" (click)="showMenu()">Fuentes de financiación</a></li>
+                        <li><a routerLink="/trabajar" (click)="showMenu()">Oferta laboral</a></li>
                     </ul>
                 </li>
-                <li><a routerLink="/contacto">Contacto</a></li>
-                <li><a routerLink="/register">Registro</a></li>
-                <li><a routerLink="/login">Ingresar</a></li> 
+                <li><a routerLink="/contacto" (click)="showMenu()">Contacto</a></li>
+                <li><a routerLink="/register" (click)="showMenu()">Registro</a></li>
+                <li><a routerLink="/login" (click)="showMenu()">Ingresar</a></li> 
             </ul>
         </nav><!-- .navbar -->
 
